@@ -18,8 +18,8 @@ def cal(a,b,c):
 n = int(input())
 results =[]
 for i in range(n):
-    a,b,c = input().split()
-    results.append(cal(int(a), int(b), int(c)))
+    a,b,c = map(int,input().split())
+    results.append(cal(a,b,c))
 
 
 
