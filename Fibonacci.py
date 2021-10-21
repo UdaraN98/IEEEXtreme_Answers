@@ -1,18 +1,29 @@
-#50% fibonacci solution
+#100% fibonacci solution
+#matrix exponention is used 
+#after n =60 the pattern start to repeat. so devide n by 60
 
+import numpy as np
 def model(n):
-    out = [1,1]
-    for i in range(2, n + 1):
-        out.append(out[i - 1] + out[i - 2])
+    F = np.array([[1,1],[1,0]])
+    if (n == 0):
+        return 0
+    k = np.linalg.matrix_power(F,(n%60))
 
-    return out[n]%10
-
-
+    return int(k[0,0])%10
 
 
 
 n = int(input())
+ans =[]
 for i in range(n):
     k = int(input())
-    ans = model(k)
-    print(ans)
+    ans.append(model(k))
+    
+    
+for items in ans:
+    print(items)
+
+
+
+
+
